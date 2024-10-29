@@ -22,7 +22,7 @@ export default antfu({
       'ts/no-floating-promises': ['error'],
       'ts/no-misused-promises': ['error'],
       'ts/no-confusing-void-expression': ['error'],
-      'ts/strict-boolean-expressions': ['error'],
+      'ts/strict-boolean-expressions': 'off',
       'ts/switch-exhaustiveness-check': ['error'],
       'ts/array-type': ['error', { default: 'array-simple' }],
       'ts/no-restricted-types': [
