@@ -1,0 +1,14 @@
+.main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  /* これ */
+  margin: 20px;
+
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+  border: solid 1px #000;
+}

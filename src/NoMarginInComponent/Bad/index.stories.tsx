@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from "@storybook/react";
-import Component from ".";
+import type { Meta, StoryObj } from '@storybook/react';
+import Component from '.';
 
 const meta = {
-  title: "ステートだからと useState を乱用するな",
+  title: 'コンポーネントにmarginを持たせるな',
   component: Component,
   argTypes: {},
   args: {},
@@ -11,6 +11,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Bad: Story = {
   args: {},
 };

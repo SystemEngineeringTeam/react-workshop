@@ -1,50 +1,57 @@
-# React + TypeScript + Vite
+# Reactポイント集
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+あくまでも個人的な意見です. 他の人が違う意見を持っているかもしれません.
 
-Currently, two official plugins are available:
+クソコードとして紹介していますが、決してそのコードを書いた人の人格を否定をしているわけではありません.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> 命令形はよくない書き方. 意志形(~しよう)はよりよい書き方.
+> 宗教がある場合は ※ を付けている.
+>
+> レベル:
+> ☆: 初心者も含た全人類
+> ☆☆: 一人で作り上げられるレベル
+> ☆☆☆: 完璧レベル
+> ☆☆☆☆: 勉強会で扱っていいレベルを超えている
 
-## Expanding the ESLint configuration
+## はじめに
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+React 大学附属 useState を乱用するな高校校歌
+https://www.bearwapps.com/posts/react-school-song-dont-overuse-usestate
 
-- Configure the top-level `parserOptions` property like this:
+## 項目
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- [ ] ☆ 命名規則は従え
+- [ ] ☆ コンポーネントのファイル名は大文字にしろ
+- [ ] ☆☆ ステートだからと useState を乱用するな
+- [ ] ☆ as は身を滅ぼす
+- [x] ☆ステートに依存するステートは useState で持たせるな ※例外あり
+  - [AvoidUseStateOveruse](./src/AvoidUseStateOveruse/)
+- [x] ☆ Propsバケツリレーはやめろ
+- [x] ☆☆☆ コンポーネントにmarginを持たせるな
+- [ ] ☆ ステートの更新はset関数を使え
+- [ ] ☆☆ index.{ts, tsx} ファイルはいいぞ
+- [ ] ☆☆ フォルダー構造を意識しろ
+- [ ] ☆☆ 現在のステートを元にステートを更新するなら callback を使え
+- [ ] ☆ key は正しく指定しろ
+- [ ] ☆☆ useRef を活用しよう
+- [ ] ☆☆☆☆ useReducer を活用しよう
+- [ ] ☆ React 単体はインポートするな
+- [ ] ☆☆ useEffects の callback を正しく指定しろ
+- [ ] ☆☆ 依存配列を正しく指定しろ
+- [ ] ☆ JSX内の条件分岐は気をつけろ
+- [ ] ☆☆ ステートをリセットしたいときは key を活用しよう
+- [ ] ☆☆ as const はReact人生を豊かにする
+- [ ] ☆☆ コンポーネントは細かく分割しろ
+- [ ] ☆☆ コンポーネントを細かく分割しすぎるな
+- [ ] ☆☆ 無闇にコンポーネント外の変数を使うな
+- [ ] ☆☆ カスタムフックでビューとロジックを分けよう
+- [ ] ☆☆ コンポーネント内でコンポーネントを定義するな
+- [ ] ☆☆ 引数を増やしすぎるな ※場合による
+- [ ] ☆☆ if 文の中身を増やしすぎるな
+- [ ] ☆☆ 早期 return をしろ
+- [ ] ☆☆ 型推論を活用しよう ※宗教あり
+- [ ] ☆ フックはコンポーネントかカスタムフック内でのみ使え
+- [ ] ☆ スペース開けるのに` `(スペース)を使うな
+- [ ] ☆ 変数と文字列の結合はテンプレートリテラルを使え
+- [ ] ☆☆ useCallcack, useMemoでレンダリングを抑えよう
+- [ ] ☆☆☆☆ render hooks パターンを使おう
