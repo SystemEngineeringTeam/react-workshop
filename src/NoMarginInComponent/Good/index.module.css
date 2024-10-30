@@ -1,11 +1,12 @@
 .main {
   display: flex;
   flex-wrap: wrap;
-  padding: 20px;
-  gap: 40px;
 }
 
 .card {
+  /* これ */
+  margin: 20px;
+
   padding: 10px;
   text-align: center;
   width: 200px;

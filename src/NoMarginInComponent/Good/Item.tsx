@@ -4,6 +4,6 @@ type Props = {
   name: string;
 };
 
-export default function NoMarginInComponentGoodItem({ name }: Props) {
+export default function NoMarginInComponentBadItem({ name }: Props) {
   return <div className={styles.card}>{name}</div>;
 }

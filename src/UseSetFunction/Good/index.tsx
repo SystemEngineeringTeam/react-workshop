@@ -1,17 +1,25 @@
-import { useState } from 'react';
+/**
+ * このコードはガチで禁忌を犯した激ヤバコードです。
+ * 絶対に真似しないでください。
+ */
 
-export default function UseSetFunctionGood() {
-  const [count, setCount] = useState({
+import { useReducer, useState } from 'react';
+
+export default function UseSetFunctionBad() {
+  const [count] = useState({
     adelie: 0,
     emperor: 0,
   });
+  const forceUpdate = useReducer((v) => !v, false)[1];
 
   function incrementAdellie() {
-    setCount((prev) => ({ ...prev, adelie: prev.adelie + 1 }));
+    count.adelie += 1;
+    forceUpdate();
   }
 
   function incrementEmperor() {
-    setCount((prev) => ({ ...prev, emperor: prev.emperor + 1 }));
+    count.emperor += 1;
+    forceUpdate();
   }
 
   return (
