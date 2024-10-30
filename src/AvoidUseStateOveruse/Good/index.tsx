@@ -1,11 +1,15 @@
-import { type ReactElement, useState } from 'react';
+import { type ReactElement, useEffect, useState } from 'react';
 
-export default function AvoidUseStateOveruseGood(): ReactElement {
+export default function AvoidUseStateOveruseBad(): ReactElement {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const fullName = `${firstName} ${lastName}`;
+  const [fullName, setFullName] = useState('');
 
   console.info('render');
+
+  useEffect(() => {
+    setFullName(`${firstName} ${lastName}`);
+  }, [firstName, lastName]);
 
   return (
     <main>
