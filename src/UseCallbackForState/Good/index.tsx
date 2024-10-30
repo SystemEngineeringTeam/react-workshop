@@ -4,16 +4,16 @@ export default function UseCallbackForStateBad() {
   const [count, setCount] = useState(0);
 
   function handleClick() {
-    setCount(count + 1);
-    setCount(count + 1);
-    setCount(count + 1);
-    setCount(count + 1);
-    setCount(count + 1);
-    setCount(count + 1);
-    setCount(count + 1);
-    setCount(count + 1);
-    setCount(count + 1);
-    setCount(count + 1);
+    setCount((c) => c + 1);
+    setCount((c) => c + 1);
+    setCount((c) => c + 1);
+    setCount((c) => c + 1);
+    setCount((c) => c + 1);
+    setCount((c) => c + 1);
+    setCount((c) => c + 1);
+    setCount((c) => c + 1);
+    setCount((c) => c + 1);
+    setCount((c) => c + 1);
   }
 
   return (

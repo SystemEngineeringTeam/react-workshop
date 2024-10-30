@@ -21,7 +21,7 @@ const penguins = [
   { id: 17, name: 'スネアーズペンギン' },
 ] as const;
 
-export default function NoMarginInComponentBad() {
+export default function NoMarginInComponentGood() {
   return (
     <main className={styles.main}>
       {penguins.map((penguin) => (

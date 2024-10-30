@@ -2,22 +2,20 @@ import { useEffect, useRef } from 'react';
 
 type Props = {
   opened: boolean;
-  setOpened: React.Dispatch<React.SetStateAction<boolean>>;
+  close: () => void;
   penguin: { id: number; name: string } | undefined;
 };
 
-export default function Dialog({ opened, setOpened, penguin }: Props) {
+export default function Dialog({ opened, close, penguin }: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect((): void => {
     const dialogElement = dialogRef.current;
-    if (dialogElement === undefined)
-      return;
+    if (dialogElement === undefined) return;
 
     if (opened) {
       dialogElement?.showModal();
-    }
-    else {
+    } else {
       dialogElement?.close();
     }
   }, [opened]);
@@ -25,7 +23,9 @@ export default function Dialog({ opened, setOpened, penguin }: Props) {
   return (
     <dialog ref={dialogRef}>
       <p>{penguin?.name}</p>
-      <button onClick={() => { setOpened(false); }} type="button">閉じる</button>
+      <button onClick={close} type="button">
+        閉じる
+      </button>
     </dialog>
   );
 }

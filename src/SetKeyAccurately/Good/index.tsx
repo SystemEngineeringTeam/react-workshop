@@ -42,9 +42,8 @@ export default function SetKeyAccuratelyBad() {
       </div>
 
       <div>
-        {penguins.map((penguin, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <SetKeyAccuratelyBadItem key={index} name={penguin.name} />
+        {penguins.map((penguin) => (
+          <SetKeyAccuratelyBadItem key={penguin.id} name={penguin.name} />
         ))}
       </div>
     </main>

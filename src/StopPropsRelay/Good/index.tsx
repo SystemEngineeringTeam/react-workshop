@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useAtomValue } from 'jotai';
 import Dialog from './Dialog';
+import useOpened from './hooks/useOpened';
 import PenguinList from './PenguinList';
+import { selectedPenguinAtom } from './stores/selectedPenguin';
 
 const penguins = [
   { id: 1, name: 'アデリーペンギン' },
@@ -23,19 +25,13 @@ const penguins = [
 ] as const;
 
 export default function StopPropsRelayBad() {
-  const [opened, setOpened] = useState(false);
-  const [selectedPenguin, setSelectedPenguin] = useState<{ id: number; name: string }>();
+  const { opened, close } = useOpened();
+  const selectedPenguin = useAtomValue(selectedPenguinAtom);
 
   return (
     <main>
-      <PenguinList
-        opened={opened}
-        penguins={penguins}
-        selectedPenguin={selectedPenguin}
-        setOpened={setOpened}
-        setSelectedPenguin={setSelectedPenguin}
-      />
-      <Dialog opened={opened} penguin={selectedPenguin} setOpened={setOpened} />
+      <PenguinList penguins={penguins} />
+      <Dialog opened={opened} close={close} penguin={selectedPenguin} />
     </main>
   );
 }

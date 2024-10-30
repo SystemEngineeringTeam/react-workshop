@@ -24,8 +24,8 @@ export default function SafeConditionInJSXBad() {
       </button>
 
       <div>
-        {count && <p>0ではありません</p>}
-        {count || <p>0です</p>}
+        {count > 0 && <p>0ではありません</p>}
+        {count === 0 && <p>0です</p>}
         {count < 0 && <p>0未満です</p>}
       </div>
     </main>

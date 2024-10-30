@@ -1,15 +1,18 @@
+import { useSetAtom } from 'jotai';
+import useOpened from './hooks/useOpened';
+import { selectedPenguinAtom } from './stores/selectedPenguin';
+
 type Props = {
   penguin: { id: number; name: string };
-  opened: boolean;
-  setOpened: React.Dispatch<React.SetStateAction<boolean>>;
-  selectedPenguin: { id: number; name: string } | undefined;
-  setSelectedPenguin: React.Dispatch<React.SetStateAction<{ id: number; name: string } | undefined>>;
 };
 
-export default function PenguinItem({ penguin, setOpened, setSelectedPenguin }: Props) {
+export default function PenguinItem({ penguin }: Props) {
+  const setSelectedPenguin = useSetAtom(selectedPenguinAtom);
+  const { open } = useOpened();
+
   const handleClick = () => {
     setSelectedPenguin(penguin);
-    setOpened(true);
+    open();
   };
 
   return <li onClick={handleClick}>{penguin.name}</li>;
